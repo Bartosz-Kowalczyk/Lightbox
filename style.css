@@ -22,10 +22,11 @@ body {
 
 .gallery img {
     cursor: pointer;
+    width: 100%;
 }
 
 #lightbox {
-    background-color: rgba(0,0,0, 0.6);
+    background-color: rgba(0, 0, 0, 0.692);
     display: none;
     height: 100vh;
     position: fixed;
@@ -43,4 +44,5 @@ body {
 #lightbox img {
     max-height: 80%;
     max-width: 80%;
+    box-shadow: 0px 1px 51px 13px rgba(0,0,0,1);
 }
