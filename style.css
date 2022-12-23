@@ -1,51 +1,95 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .gallery {
-    align-items: center;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(3, 1fr);
-    height: 100vh;
-    justify-content: center;
-    padding: 20px;
-    width: 100vw;
+  align-items: center;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100vh;
+  justify-content: center;
+  padding: 20px;
+  visibility: hidden;
+  width: 100vw;
+}
+
+.gallery.active {
+  visibility: visible;
 }
 
 .gallery img {
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    border-radius: 10px;
-    cursor: pointer;
-    width: 100%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.loader {
+  display: none;
+}
+
+.loader.active {
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.circle {
+  display: none;
+}
+
+.circle.active {
+  display: block;
+  animation: spin 2s linear infinite;
+  border: 15px solid #4E5D6C;
+  border-radius: 50%;
+  border-top: 15px solid rgb(23, 255, 255);
+  height: 100px;
+  width: 100px
 }
 
 #lightbox {
-    background-color: rgba(0, 0, 0, 0.692);
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 100;
+  background-color: rgba(0, 0, 0, 0.692);
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
 }
 
 #lightbox.active {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 #lightbox img {
-    border-radius: 10px;
-    box-shadow: 0px 1px 51px 13px rgba(0,0,0,1);
-    max-height: 80%;
-    max-width: 80%;
+  border-radius: 10px;
+  box-shadow: 0px 1px 51px 13px rgba(0, 0, 0, 1);
+  max-height: 80%;
+  max-width: 80%;
+}
+
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
 }
